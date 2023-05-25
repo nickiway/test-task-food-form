@@ -5,7 +5,7 @@ export const initialSchema = {
 
   // for pizza
   no_of_slices: "",
-  diametr: "",
+  diameter: "",
 
   // for soup
   spiciness_scale: 0,
@@ -17,7 +17,7 @@ export const initialSchema = {
 // options for select
 export const selectValues = [
   { value: "Chose dish type", label: "Chose dish type" },
-  { value: "Pizza", label: "Pizza" },
-  { value: "Soup", label: "Soup" },
-  { value: "Sandwich", label: "Sandwich" },
+  { value: "pizza", label: "Pizza" },
+  { value: "soup", label: "Soup" },
+  { value: "sandwich", label: "Sandwich" },
 ];

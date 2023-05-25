@@ -1,27 +1,27 @@
-import { InputComponent } from "./CustomComponents";
+import CustomInput from "./CustomInput";
 
-export default function returnFieldsBasedOnType(values) {
+export default function DynamicFormComponent({ values }) {
   switch (values.type) {
-    case "Pizza":
+    case "pizza":
       return (
         <>
-          <InputComponent
+          <CustomInput
             name={"no_of_slices"}
             type={"text"}
             label={"Number of slices"}
             placeholder={0}
           />
-          <InputComponent
-            name={"diametr"}
+          <CustomInput
+            name={"diameter"}
             type={"text"}
             label={"Diametr"}
             placeholder={0}
           />
         </>
       );
-    case "Soup":
+    case "soup":
       return (
-        <InputComponent
+        <CustomInput
           name={"spiciness_scale"}
           type={"range"}
           label={"Spiciness scale"}
@@ -30,9 +30,9 @@ export default function returnFieldsBasedOnType(values) {
           value={values.spiciness_scale}
         />
       );
-    case "Sandwich":
+    case "sandwich":
       return (
-        <InputComponent
+        <CustomInput
           name={"slices_of_bread"}
           type={"text"}
           label={"Slices of bread"}

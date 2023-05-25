@@ -14,12 +14,12 @@ export const validationSchema = Yup.object({}).shape({
 
   // for select
   type: Yup.string()
-    .oneOf(["Pizza", "Soup", "Sandwich"], "Choose one of the options")
+    .oneOf(["pizza", "soup", "sandwich"], "Choose one of the options")
     .required("Type is required"),
 
   // for pizza
   no_of_slices: Yup.number().when("type", {
-    is: (type) => type === "Pizza",
+    is: (type) => type === "pizza",
     then: () =>
       Yup.number()
         .min(4, "Number of slices must be greater than 3")
@@ -28,8 +28,8 @@ export const validationSchema = Yup.object({}).shape({
   }),
 
   // for pizza
-  diametr: Yup.number().when("type", {
-    is: (type) => type === "Pizza",
+  diameter: Yup.number().when("type", {
+    is: (type) => type === "pizza",
     then: () =>
       Yup.number()
         .min(10, "Diametr must be greater than 10")
@@ -39,7 +39,7 @@ export const validationSchema = Yup.object({}).shape({
 
   // for soup
   spiciness_scale: Yup.number().when("type", {
-    is: (type) => type === "Soup",
+    is: (type) => type === "soup",
     then: () =>
       Yup.number()
         .min(0, "Value must be greater than or equal to 0")
@@ -50,7 +50,7 @@ export const validationSchema = Yup.object({}).shape({
 
   // for sandwich
   slices_of_bread: Yup.number().when("type", {
-    is: (type) => type === "Sandwich",
+    is: (type) => type === "sandwich",
     then: () =>
       Yup.number()
         .min(1, "Number of slices must be greater than 0")

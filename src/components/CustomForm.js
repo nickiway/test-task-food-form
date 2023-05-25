@@ -1,59 +1,59 @@
 import { Form, Formik, useFormikContext } from "formik";
-
-import { InputComponent, SelectComponent } from "./CustomComponents";
-import returnFieldsBasedOnType from "./returnFieldsBasedOnType";
-
-import { validationSchema } from "../validationSchema";
-import { initialSchema, selectValues } from "../initialSchema";
 import { useEffect } from "react";
 
-function submit(values) {
-  const array = Object.entries(values).filter(([_, value]) => value);
-  const object = Object.fromEntries(array);
-  console.log(object);
-}
-function GetType({ setDish }) {
-  const context = useFormikContext();
-  const { values } = context;
-  useEffect(() => {
-    setDish(values.type);
-  }, [values.type]);
-  return null;
-}
-export default function CustomForm({ setDish }) {
+import CustomSelect from "./CustomSelect";
+import CustomInput from "./CustomInput";
+import DynamicFormComponent from "./DynamicFormComponent";
+
+import { validationSchema } from "../ini/validationSchema";
+import { initialSchema, selectValues } from "../ini/initialSchema";
+import submit from "../service/service";
+
+export default function CustomForm({ setDish, setError }) {
   return (
     <Formik
       initialValues={initialSchema}
       validationSchema={validationSchema}
-      onSubmit={submit}
+      onSubmit={(values) => submit(values, setError)}
       enableReinitialize
     >
       {({ values }) => {
         return (
           <Form action="post">
-            <GetType setDish={setDish} />
-            <InputComponent
+            <CustomInput
               name="name"
               type="text"
               label="Enter the name of dish"
               placeholder="The dish name"
             />
-            <InputComponent
+            <CustomInput
               name="preparation_time"
               type="time"
               label="Enter the time"
               step={1}
             />
-            <SelectComponent
+            <CustomSelect
               selectValues={selectValues}
               name={"type"}
               label={"Enter the type of dish"}
             />
-            {returnFieldsBasedOnType(values)}
+            <DynamicFormComponent values={values} />
             <button type="submit">Order the dish</button>
+            <DishType setDish={setDish} />
           </Form>
         );
       }}
     </Formik>
   );
+}
+
+function DishType({ setDish }) {
+  const context = useFormikContext();
+  const { values } = context;
+
+  useEffect(() => {
+    setDish(() => values.type);
+  }, [values.type]);
+
+  return null;
 }
