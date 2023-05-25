@@ -1,6 +1,6 @@
 import { InputComponent } from "./CustomComponents";
 
-const RenderFormComponent = (name, type, label, additionalProps = {}) => {
+const renderFormComponent = (name, type, label, additionalProps = {}) => {
   return (
     <InputComponent
       name={name}
@@ -11,4 +11,4 @@ const RenderFormComponent = (name, type, label, additionalProps = {}) => {
   );
 };
 
-export default RenderFormComponent;
+export default renderFormComponent;

@@ -1,13 +1,15 @@
 import { Form, Formik } from "formik";
 
 import { InputComponent, SelectComponent } from "./CustomComponents";
-import ReturnFieldsBasedOnType from "./ReturnFieldsBasedOnType";
+import returnFieldsBasedOnType from "./returnFieldsBasedOnType";
 
 import { validationSchema } from "../validationSchema";
 import { initialSchema, selectValues } from "../initialSchema";
 
 function submit(values) {
-  console.log(+values.no_of_slices);
+  const array = Object.entries(values).filter(([, value]) => value);
+  const object = Object.fromEntries(array);
+  console.log(object);
 }
 
 export default function CustomForm() {
@@ -39,7 +41,8 @@ export default function CustomForm() {
               label={"Enter the type of dish"}
             />
 
-            <ReturnFieldsBasedOnType type={values.type} values={values} />
+            {returnFieldsBasedOnType(values.type, values)}
+
             <button type="submit">Order the dish</button>
           </Form>
         );
