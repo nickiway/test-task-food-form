@@ -1,0 +1,19 @@
+@import "variables";
+
+.container {
+  max-width: 1368px;
+  margin: auto;
+}
+
+.align {
+  display: flex;
+  align-self: center;
+  justify-content: center;
+}
+
+.content-block {
+  color: $secondary-color;
+  height: 70vh;
+  margin: 20px;
+  transition: width 1s;
+}

@@ -14,7 +14,7 @@ export default function DynamicFormComponent({ values }) {
           <CustomInput
             name={"diameter"}
             type={"text"}
-            label={"Diametr"}
+            label={"Diameter"}
             placeholder={0}
           />
         </>

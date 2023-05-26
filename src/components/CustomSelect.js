@@ -1,11 +1,18 @@
+import { useField } from "formik";
+
 import { Field, ErrorMessage } from "formik";
 
 // custom select component
 export default function CustomSelect({ name, label, selectValues }) {
+  const [field, meta] = useField(name);
+  const styles = "form__select" + (meta.error ? " form__select_error" : "");
+
   return (
-    <div>
-      <label htmlFor="type">{label}</label>
-      <Field as="select" name={name} id={name}>
+    <div className="form__item">
+      <div className="label__container">
+        <label htmlFor="type">{label}</label>
+      </div>
+      <Field className={styles} as="select" name={name} id={name}>
         {selectValues.map((item, index) => {
           return (
             <option key={index} value={item.value}>
@@ -14,7 +21,11 @@ export default function CustomSelect({ name, label, selectValues }) {
           );
         })}
       </Field>
-      <ErrorMessage name={name}></ErrorMessage>
+      <ErrorMessage
+        name={name}
+        className="error__title"
+        component={"div"}
+      ></ErrorMessage>
     </div>
   );
 }

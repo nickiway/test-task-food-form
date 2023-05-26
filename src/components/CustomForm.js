@@ -1,4 +1,4 @@
-import { Form, Formik, useFormikContext } from "formik";
+import { Field, Form, Formik, useFormikContext } from "formik";
 import { useEffect } from "react";
 
 import CustomSelect from "./CustomSelect";
@@ -7,19 +7,22 @@ import DynamicFormComponent from "./DynamicFormComponent";
 
 import { validationSchema } from "../ini/validationSchema";
 import { initialSchema, selectValues } from "../ini/initialSchema";
-import submit from "../service/service";
+import onSubmit from "../service/service";
 
-export default function CustomForm({ setDish, setError }) {
+import "../scss/_form.scss";
+
+export default function CustomForm({ setFoodType, setError }) {
+  console.log("render");
   return (
     <Formik
       initialValues={initialSchema}
       validationSchema={validationSchema}
-      onSubmit={(values) => submit(values, setError)}
+      onSubmit={(values) => onSubmit(values, setError)}
       enableReinitialize
     >
       {({ values }) => {
         return (
-          <Form action="post">
+          <Form className="form__body" action="post">
             <CustomInput
               name="name"
               type="text"
@@ -38,8 +41,12 @@ export default function CustomForm({ setDish, setError }) {
               label={"Enter the type of dish"}
             />
             <DynamicFormComponent values={values} />
-            <button type="submit">Order the dish</button>
-            <DishType setDish={setDish} />
+            <div className="form__item">
+              <Field as="button" className="form__button" type="submit">
+                Order the dish
+              </Field>
+            </div>
+            <DishType setFoodType={setFoodType} />
           </Form>
         );
       }}
@@ -47,12 +54,12 @@ export default function CustomForm({ setDish, setError }) {
   );
 }
 
-function DishType({ setDish }) {
+function DishType({ setFoodType }) {
   const context = useFormikContext();
   const { values } = context;
 
   useEffect(() => {
-    setDish(() => values.type);
+    setFoodType(() => values.type.toLowerCase());
   }, [values.type]);
 
   return null;

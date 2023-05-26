@@ -16,7 +16,7 @@ export const initialSchema = {
 
 // options for select
 export const selectValues = [
-  { value: "Chose dish type", label: "Chose dish type" },
+  { value: "Please Select", label: "Please Select" },
   { value: "pizza", label: "Pizza" },
   { value: "soup", label: "Soup" },
   { value: "sandwich", label: "Sandwich" },

@@ -1,0 +1,8 @@
+@import "variables";
+.dish__container {
+  color: $primary-color;
+  background-color: $secondary-color;
+  border-right: 1px solid $primary-color;
+  padding: 20px;
+  width: 600px;
+}

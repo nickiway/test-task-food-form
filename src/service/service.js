@@ -8,20 +8,28 @@ const _filterObject = (values) => {
   }, {});
 };
 
-export default async function submit(values, setError) {
-  try {
-    const options = {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(_filterObject(values)),
-    };
+export default async function onSubmit(values, setError) {
+  const options = {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(_filterObject(values)),
+  };
 
-    const response = await fetch(_url, options);
+  const response = await fetch(_url, options);
+  if (response.ok) {
     const data = await response.json();
     console.log(data);
-  } catch (error) {
-    // setError({status: true, error.message});
+    return data;
   }
+
+  return response.text().then((text) => {
+    setError({
+      isOk: false,
+      status: response.status,
+      message: text,
+    });
+    throw new Error(text);
+  });
 }

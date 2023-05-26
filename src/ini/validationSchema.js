@@ -3,7 +3,7 @@ import * as Yup from "yup";
 export const validationSchema = Yup.object({}).shape({
   // for name
   name: Yup.string()
-    .max(30, "Must be 30 characters or less")
+    .max(100, "Must be 100 characters or less")
     .required("Name is required"),
 
   // for time
@@ -23,6 +23,7 @@ export const validationSchema = Yup.object({}).shape({
     then: () =>
       Yup.number()
         .min(4, "Number of slices must be greater than 3")
+        .max(12, "Number of slices must be less than 13")
         .required("Number of slices is required")
         .typeError("Number of slices must be a number"),
   }),
@@ -32,9 +33,10 @@ export const validationSchema = Yup.object({}).shape({
     is: (type) => type === "pizza",
     then: () =>
       Yup.number()
-        .min(10, "Diametr must be greater than 10")
-        .required("Diametr is required")
-        .typeError("Diametr must be a number"),
+        .min(10, "Diameter must be greater than 10")
+        .max(100, "Diameter must be less than 100")
+        .required("Diameter is required")
+        .typeError("Diameter must be a number"),
   }),
 
   // for soup

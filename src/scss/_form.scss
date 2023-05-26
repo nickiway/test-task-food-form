@@ -1,0 +1,60 @@
+@import "variables";
+.form__item {
+  margin: 10px;
+}
+.form__body {
+  padding: 20px;
+  min-width: 300px;
+  background-color: $form-color;
+  transition: 0.5s width;
+}
+.label__container {
+  padding: 5px 0;
+}
+.form__input,
+.form__select,
+.form__button {
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 0.75rem;
+  width: 200px;
+  border: 1px solid #fff;
+}
+
+.form__button {
+  transition: 0.5s;
+  cursor: pointer;
+  background-color: $secondary-color;
+}
+
+.form__button:hover {
+  background-color: $primary-color;
+  color: $secondary-color;
+  transition: 0.5s;
+}
+
+.form__input:focus,
+.form__select:focus {
+  outline: none;
+  border: 1px solid $primary-color;
+}
+
+.form__input::placeholder,
+.form__select::placeholder {
+  color: $form-color;
+}
+
+.form__input_error,
+.form__select_error {
+  border: 1px solid $error-color !important;
+}
+
+.form__input_error::placeholder,
+.form__select::placeholder {
+  color: $error-color !important;
+}
+
+.form__input:valid,
+.form__select:valid {
+  border: 1px solid $primary-color;
+}
