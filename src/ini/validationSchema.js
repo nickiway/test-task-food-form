@@ -8,7 +8,10 @@ export const validationSchema = Yup.object({}).shape({
 
   // for time
   preparation_time: Yup.string()
-    .matches(/^([01]\d|2[0-3]):[0-5]\d:[0-5]\d$/, "Invalid time format")
+    .matches(
+      /^([01]\d|2[0-3]):[0-5]\d:[0-5]\d$/,
+      "Invalid time format, minimum 10 seconds"
+    )
     .required("Preparation time is required")
     .typeError("Enter the time in the format hh:mm:ss"),
 
@@ -34,7 +37,7 @@ export const validationSchema = Yup.object({}).shape({
     then: () =>
       Yup.number()
         .min(10, "Diameter must be greater than 10")
-        .max(100, "Diameter must be less than 100")
+        .max(60, "Diameter must be less than 100")
         .required("Diameter is required")
         .typeError("Diameter must be a number"),
   }),

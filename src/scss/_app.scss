@@ -2,18 +2,22 @@
 
 .container {
   max-width: 1368px;
+  height: 100vh;
   margin: auto;
 }
 
 .align {
   display: flex;
-  align-self: center;
-  justify-content: center;
+  align-items: center;
 }
 
 .content-block {
   color: $secondary-color;
-  height: 70vh;
   margin: 20px;
+  height: 100vh;
   transition: width 1s;
+}
+
+.d-flex {
+  display: flex;
 }

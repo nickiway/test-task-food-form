@@ -5,7 +5,7 @@
 .form__body {
   padding: 20px;
   min-width: 300px;
-  background-color: $form-color;
+  margin: 0 auto;
   transition: 0.5s width;
 }
 .label__container {
@@ -56,5 +56,5 @@
 
 .form__input:valid,
 .form__select:valid {
-  border: 1px solid $primary-color;
+  border: 1px solid $form-color;
 }

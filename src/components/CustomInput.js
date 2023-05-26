@@ -6,7 +6,7 @@ import "../scss/_errors.scss";
 
 // custom input component
 export default function CustomInput({ name, type, label, ...args }) {
-  const [field, meta] = useField(name);
+  const [_, meta] = useField(name);
   const styles =
     "form__input" + (meta.error && meta.touched ? " form__input_error" : "");
 

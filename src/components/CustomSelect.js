@@ -4,8 +4,9 @@ import { Field, ErrorMessage } from "formik";
 
 // custom select component
 export default function CustomSelect({ name, label, selectValues }) {
-  const [field, meta] = useField(name);
-  const styles = "form__select" + (meta.error ? " form__select_error" : "");
+  const [_, meta] = useField(name);
+  const styles =
+    "form__select" + (meta.error && meta.touched ? " form__select_error" : "");
 
   return (
     <div className="form__item">
