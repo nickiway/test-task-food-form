@@ -6,15 +6,15 @@ This project provides a basic setup for creating a React application.
 
 Before getting started, make sure you have the following software installed on your machine:
 
-- Node.js: https://nodejs.org, recommended version : v18.12.1
-- npm (Node Package Manager): Installed automatically with Node.js, recommended version : 8.19.2
+- Node.js: recommended version : v18.12.1
+- npm (Node Package Manager): recommended version : 8.19.2
 
 ## Getting Started
 
 1. Clone the repository to your local machine using the following command:
-   git clone <repository-url>
+   git clone https://github.com/nickiway/test-task-food-form.git
 2. Navigate to the project directory:
-   cd <project-directory>
+   cd <test-task-food-form>
 3. Install the project dependencies by running the following command:
    npm install
 4. Start the development server:
