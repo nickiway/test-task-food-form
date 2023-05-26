@@ -37,7 +37,7 @@ export const validationSchema = Yup.object({}).shape({
     then: () =>
       Yup.number()
         .min(10, "Diameter must be greater than 10")
-        .max(60, "Diameter must be less than 100")
+        .max(60, "Diameter must be less than 60")
         .required("Diameter is required")
         .typeError("Diameter must be a number"),
   }),

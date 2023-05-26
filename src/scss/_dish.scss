@@ -1,34 +1,14 @@
 @import "variables";
+
 .dish {
-  color: $secondary-color;
-  border-right: 1px solid $primary-color;
-
-  padding: 20px;
-  min-height: 70vh;
-  margin: 0 auto;
-}
-.dish__container {
-  margin: 0px 0px 50px 50px;
-  width: 300px;
+  min-width: 80%;
+  image-rendering: -webkit-optimize-contrast;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 20px;
 }
 
-.dish__title {
-  font-size: 2rem;
-  margin-bottom: 20px;
-}
-.dish__field {
-  margin-bottom: 20px;
-  flex-wrap: wrap;
-  font-size: 1.5rem;
-}
-
-.dish__field--error {
-  color: $error-color;
-}
-
-.dish__image {
-  width: 60%;
-}
-.dish__image > img {
-  width: 400px;
+.dish__form {
+  display: flex;
 }

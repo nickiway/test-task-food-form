@@ -1,32 +1,29 @@
 import { useField } from "formik";
-
-import { Field, ErrorMessage } from "formik";
-
-import "../scss/_errors.scss";
+import { TextField } from "@material-ui/core";
 
 // custom input component
-export default function CustomInput({ name, type, label, ...args }) {
-  const [_, meta] = useField(name);
-  const styles =
-    "form__input" + (meta.error && meta.touched ? " form__input_error" : "");
+export default function CustomInput({ name, type, label, hint, ...args }) {
+  const [field, meta] = useField(name);
 
   return (
     <div className="form__item">
-      <div className="label__container">
-        <label htmlFor={name}>{label}</label>
-      </div>
-      <Field
-        className={styles}
+      <TextField
+        {...field}
         id={name}
         name={name}
         type={type}
+        label={label}
+        variant="outlined"
+        autoComplete="off"
+        error={false}
         {...args}
-      ></Field>
-      <ErrorMessage
-        className="error__title"
-        name={name}
-        component={"div"}
-      ></ErrorMessage>
+        className="form__input"
+      />
+      {meta.error && meta.touched ? (
+        <div className="error">{meta.error}</div>
+      ) : (
+        <div className="hint">Hint: {hint}</div>
+      )}
     </div>
   );
 }

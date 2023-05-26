@@ -1,60 +1,60 @@
 @import "variables";
 .form__item {
-  margin: 10px;
+  margin: 20px 0px;
 }
 .form__body {
-  padding: 20px;
-  min-width: 300px;
-  margin: 0 auto;
-  transition: 0.5s width;
+  padding: 20px 50px;
+  border-radius: 20px;
+  min-width: 35%;
+  background-color: #fff;
+  margin: 40px;
+}
+.form__subtitle {
+  margin-bottom: 20px;
+  color: gray;
+  font-family: "Courier New", Courier, monospace;
+  text-align: center;
 }
 .label__container {
   padding: 5px 0;
 }
-.form__input,
-.form__select,
 .form__button {
-  border-radius: 5px;
   padding: 10px;
-  font-size: 0.75rem;
-  width: 200px;
-  border: 1px solid #fff;
+  font-size: 1rem;
+  width: 100%;
+  border: none;
+  border: 1px solid $primary-color;
 }
-
-.form__button {
+.form__input,
+.form__select {
+  width: 100%;
+  border: none;
   transition: 0.5s;
-  cursor: pointer;
-  background-color: $secondary-color;
 }
-
-.form__button:hover {
+.form__separator {
+  height: 5px;
   background-color: $primary-color;
+  border: none;
+  margin: 0px 0px 20px 0px;
+}
+.form__button {
+  background-color: $primary-color;
+  cursor: pointer;
   color: $secondary-color;
   transition: 0.5s;
 }
 
+.form__button:hover {
+  background-color: $secondary-color;
+  color: $primary-color;
+  transition: 0.5s;
+}
 .form__input:focus,
 .form__select:focus {
-  outline: none;
   border: 1px solid $primary-color;
 }
 
 .form__input::placeholder,
 .form__select::placeholder {
   color: $form-color;
-}
-
-.form__input_error,
-.form__select_error {
-  border: 1px solid $error-color !important;
-}
-
-.form__input_error::placeholder,
-.form__select::placeholder {
-  color: $error-color !important;
-}
-
-.form__input:valid,
-.form__select:valid {
-  border: 1px solid $form-color;
 }

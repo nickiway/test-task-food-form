@@ -7,13 +7,30 @@
 }
 
 body {
-  background-color: $primary-color;
-  color: $secondary-color;
+  background-image: $background-image;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-family: "Roboto", sans-serif;
 }
 
 select {
+  border-radius: 0;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
   padding: 5px;
+}
+
+.error,
+.hint {
+  font-size: 0.8rem;
+  margin-bottom: 1rem;
+}
+.error {
+  color: $error-color;
+}
+.hint {
+  font-weight: 100;
+  color: gray;
 }

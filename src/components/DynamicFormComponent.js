@@ -1,5 +1,4 @@
 import CustomInput from "./CustomInput";
-
 export default function DynamicFormComponent({ values }) {
   switch (values.type) {
     case "pizza":
@@ -7,15 +6,15 @@ export default function DynamicFormComponent({ values }) {
         <>
           <CustomInput
             name={"no_of_slices"}
-            type={"text"}
+            type={"number"}
             label={"Number of slices"}
-            placeholder={0}
+            hint={"Max value is 12"}
           />
           <CustomInput
             name={"diameter"}
-            type={"text"}
+            type={"number"}
             label={"Diameter"}
-            placeholder={0}
+            hint={"Max value is 60"}
           />
         </>
       );
@@ -23,10 +22,16 @@ export default function DynamicFormComponent({ values }) {
       return (
         <CustomInput
           name={"spiciness_scale"}
-          type={"range"}
+          type={"number"}
           label={"Spiciness scale"}
-          min={0}
-          max={10}
+          hint={"Max value is 10"}
+          inputProps={{
+            step: 1,
+            min: 0,
+            max: 10,
+            type: "number",
+            "aria-labelledby": "input-slider",
+          }}
           value={values.spiciness_scale}
         />
       );
@@ -34,9 +39,9 @@ export default function DynamicFormComponent({ values }) {
       return (
         <CustomInput
           name={"slices_of_bread"}
-          type={"text"}
+          type={"number"}
           label={"Slices of bread"}
-          placeholder={0}
+          hint={"Max value is 10"}
         />
       );
     default:

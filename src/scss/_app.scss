@@ -1,23 +1,22 @@
 @import "variables";
 
 .container {
-  max-width: 1368px;
   height: 100vh;
   margin: auto;
 }
 
-.align {
-  display: flex;
+.align-items-center {
   align-items: center;
 }
 
-.content-block {
-  color: $secondary-color;
-  margin: 20px;
-  height: 100vh;
-  transition: width 1s;
+.justify-content-center {
+  justify-content: center;
 }
 
 .d-flex {
   display: flex;
+}
+
+.content-block {
+  height: 100vh;
 }

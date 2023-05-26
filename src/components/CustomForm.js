@@ -13,25 +13,31 @@ export default function CustomForm() {
 
   return (
     <Form className="form__body" action="post">
+      <h2 align="center">Create a new dish</h2>
+      <p className="form__subtitle">Enter all the required fields</p>
+      <hr className="form__separator" />
       <CustomInput
         name="name"
         type="text"
         label="Enter the name of dish"
-        placeholder="The dish name"
+        hint="Max length is 100 characters"
       />
       <CustomInput
         name="preparation_time"
         type="time"
-        label="Enter the time"
-        step={1}
+        label="Enter the preparation time"
+        hint="Format: hh:mm:ss"
+        inputProps={{
+          step: 1,
+          pattern: "([01]?[0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]",
+        }}
       />
       <CustomSelect
         selectValues={selectValues}
         name={"type"}
-        label={"Enter the type of dish"}
+        label={"Choose the type of dish"}
       />
       <DynamicFormComponent values={values} />
-
       <div className="form__item">
         <Field as="button" className="form__button" type="submit">
           Submit my order

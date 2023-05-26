@@ -1,3 +1,5 @@
+import swal from "sweetalert";
+
 const _url = "https://umzzcc503l.execute-api.us-west-2.amazonaws.com/dishes/";
 
 const _filterObject = (values) => {
@@ -8,7 +10,25 @@ const _filterObject = (values) => {
   }, {});
 };
 
-export default async function onSubmit(values, setError) {
+const tryAgain = (values, response) => {
+  swal(
+    "Oops, something went wrong!",
+    `Unfortunately, you got an error number ${response.status}`,
+    "error",
+    {
+      buttons: {
+        again: "Try again",
+        cancel: true,
+      },
+    }
+  ).then((value) => {
+    if (value === "again") {
+      onSubmit(values);
+    }
+  });
+};
+
+export default async function onSubmit(values) {
   const options = {
     method: "POST",
     headers: {
@@ -20,16 +40,16 @@ export default async function onSubmit(values, setError) {
   const response = await fetch(_url, options);
   if (response.ok) {
     const data = await response.json();
+    swal(
+      "Your data was send to the server!",
+      "In order to continue click OK",
+      "success"
+    );
     console.log(data);
     return data;
   }
 
-  return response.text().then((text) => {
-    setError({
-      isOk: false,
-      status: response.status,
-      message: text,
-    });
-    throw new Error(text);
+  return response.text().then(() => {
+    tryAgain(values, response);
   });
 }

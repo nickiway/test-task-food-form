@@ -1,32 +1,32 @@
 import { useField } from "formik";
-
-import { Field, ErrorMessage } from "formik";
+import { Select, MenuItem } from "@material-ui/core";
 
 // custom select component
 export default function CustomSelect({ name, label, selectValues }) {
-  const [_, meta] = useField(name);
-  const styles =
-    "form__select" + (meta.error && meta.touched ? " form__select_error" : "");
-
+  const [field, meta] = useField(name);
   return (
     <div className="form__item">
-      <div className="label__container">
-        <label htmlFor="type">{label}</label>
-      </div>
-      <Field className={styles} as="select" name={name} id={name}>
+      <Select
+        {...field}
+        className="form__select"
+        type="select"
+        id={name}
+        displayEmpty
+        value={field.value || ""}
+        name={name}
+        label={label}
+        variant="outlined"
+      >
         {selectValues.map((item, index) => {
           return (
-            <option key={index} value={item.value}>
+            <MenuItem key={index} value={item.value}>
               {item.label}
-            </option>
+            </MenuItem>
           );
         })}
-      </Field>
-      <ErrorMessage
-        name={name}
-        className="error__title"
-        component={"div"}
-      ></ErrorMessage>
+      </Select>
+
+      {meta.error && meta.touched && <div className="error">{meta.error}</div>}
     </div>
   );
 }
