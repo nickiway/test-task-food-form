@@ -9,6 +9,7 @@ import Dish from "./Dish";
 
 import "../scss/_app.scss";
 import "../scss/_base.scss";
+import "../scss/_media.scss";
 
 function App() {
   return (
