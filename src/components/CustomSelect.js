@@ -1,5 +1,5 @@
 import { useField } from "formik";
-import { Select, MenuItem } from "@material-ui/core";
+import { Select, MenuItem } from "@mui/material";
 
 // custom select component
 export default function CustomSelect({ name, label, selectValues }) {

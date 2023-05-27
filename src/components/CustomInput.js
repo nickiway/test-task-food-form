@@ -1,5 +1,5 @@
 import { useField } from "formik";
-import { TextField } from "@material-ui/core";
+import { TextField } from "@mui/material";
 
 // custom input component
 export default function CustomInput({ name, type, label, hint, ...args }) {
