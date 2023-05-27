@@ -61,7 +61,7 @@ const onSubmit = async (values) => {
 
     // To check the response from the server
     serverResponse = data;
-    console.log(serverResponse);
+    // console.log(serverResponse);
   }
 
   // case when response is not ok
