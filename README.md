@@ -21,3 +21,5 @@ Before getting started, make sure you have the following software installed on y
    `npm start`
    This command will start the React development server and launch your application in your default browser. Any changes you make to the source code will automatically trigger a hot-reload, allowing you to see the updates in real-time.
 5. Open your browser and visit `http://localhost:3000` to view your React application.
+
+### Time took perfome this task: 2 days
