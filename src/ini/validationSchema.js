@@ -10,7 +10,7 @@ export const validationSchema = Yup.object({}).shape({
   preparation_time: Yup.string()
     .matches(
       /^([01]\d|2[0-3]):[0-5]\d:[0-5]\d$/,
-      "Invalid time format, minimum 10 seconds"
+      "Invalid time format, enter hh:mm:ss"
     )
     .required("Preparation time is required")
     .typeError("Enter the time in the format hh:mm:ss"),

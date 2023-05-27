@@ -1,6 +1,7 @@
 import swal from "sweetalert";
 
 const _url = "https://umzzcc503l.execute-api.us-west-2.amazonaws.com/dishes/";
+export let serverResponse = {};
 
 // function to check if input is in DOM
 const _isInputInDOM = (fieldName) => {
@@ -59,7 +60,8 @@ const onSubmit = async (values) => {
     );
 
     // To check the response from the server
-    // console.log(data);
+    serverResponse = data;
+    console.log(serverResponse);
   }
 
   // case when response is not ok

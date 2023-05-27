@@ -3,6 +3,7 @@ import { Field, Form, useFormikContext } from "formik";
 import CustomSelect from "./CustomSelect";
 import CustomInput from "./CustomInput";
 import CustomDynamic from "./CustomDynamic";
+import CustomTimeInput from "./CustomTimeInput";
 
 import { selectType } from "../ini/initialSchema";
 
@@ -22,15 +23,11 @@ export default function CustomForm() {
         label="Enter the name of dish"
         hint="Max length is 100 characters"
       />
-      <CustomInput
+
+      <CustomTimeInput
         name="preparation_time"
-        type="time"
-        label="Enter the preparation time"
         hint="Format: hh:mm:ss"
-        inputProps={{
-          step: 1,
-          format: "HH:mm:ss",
-        }}
+        label="Enter the preparation time"
       />
       <CustomSelect
         selectValues={selectType}
