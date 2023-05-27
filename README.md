@@ -22,4 +22,4 @@ Before getting started, make sure you have the following software installed on y
 
 ### Time took perfom this task: 3 days
 
-All the functions to work with API are stored at `service.js` (the response is stored in specific variable that can be outputed to console to check the if the response is correct)
+All the functions to work with API are stored at `service.js` (the response is stored in specific variable that can be outputed to console to check whether the response is correct)
