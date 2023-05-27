@@ -2,14 +2,23 @@ import swal from "sweetalert";
 
 const _url = "https://umzzcc503l.execute-api.us-west-2.amazonaws.com/dishes/";
 
+// function to check if input is in DOM
+const _isInputInDOM = (fieldName) => {
+  const fieldElement = document.getElementsByName(fieldName)[0];
+  return !!fieldElement;
+};
+
+// function to fileter values object from empty values
 const _filterObject = (values) => {
-  const array = Object.entries(values).filter(([_, value]) => value);
+  const array = Object.entries(values).filter(([key, _]) => _isInputInDOM(key));
+
   return array.reduce((acc, [key, value]) => {
     acc[key] = Number(value) ? Number(value) : value;
     return acc;
   }, {});
 };
 
+// function to try again
 const tryAgain = (values, response) => {
   swal(
     "Oops, something went wrong!",
@@ -28,7 +37,8 @@ const tryAgain = (values, response) => {
   });
 };
 
-export default async function onSubmit(values) {
+// function to send data to the server
+const onSubmit = async (values) => {
   const options = {
     method: "POST",
     headers: {
@@ -38,6 +48,8 @@ export default async function onSubmit(values) {
   };
 
   const response = await fetch(_url, options);
+
+  // case when response is ok
   if (response.ok) {
     const data = await response.json();
     swal(
@@ -45,11 +57,15 @@ export default async function onSubmit(values) {
       "In order to continue click OK",
       "success"
     );
-    console.log(data);
-    return data;
+
+    // To check the response from the server
+    // console.log(data);
   }
 
+  // case when response is not ok
   return response.text().then(() => {
     tryAgain(values, response);
   });
-}
+};
+
+export default onSubmit;

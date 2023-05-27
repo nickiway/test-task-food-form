@@ -4,18 +4,15 @@ import { Select, MenuItem } from "@material-ui/core";
 // custom select component
 export default function CustomSelect({ name, label, selectValues }) {
   const [field, meta] = useField(name);
+  const isInvalid = meta.error && meta.touched;
+
   return (
     <div className="form__item">
       <Select
         {...field}
         className="form__select"
-        type="select"
-        id={name}
-        displayEmpty
-        value={field.value || ""}
-        name={name}
-        label={label}
         variant="outlined"
+        displayEmpty
       >
         {selectValues.map((item, index) => {
           return (
@@ -26,7 +23,11 @@ export default function CustomSelect({ name, label, selectValues }) {
         })}
       </Select>
 
-      {meta.error && meta.touched && <div className="error">{meta.error}</div>}
+      {isInvalid ? (
+        <div className="error">{meta.error}</div>
+      ) : (
+        <div className="hint">Hint: {label}</div>
+      )}
     </div>
   );
 }

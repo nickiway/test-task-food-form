@@ -2,11 +2,12 @@
 .form__item {
   margin: 20px 0px;
 }
+
 .form__body {
   padding: 20px 50px;
   border-radius: 20px;
   min-width: 35%;
-  background-color: #fff;
+  background-color: $form-color;
   margin: 40px;
 }
 .form__subtitle {
@@ -15,9 +16,7 @@
   font-family: "Courier New", Courier, monospace;
   text-align: center;
 }
-.label__container {
-  padding: 5px 0;
-}
+
 .form__button {
   padding: 10px;
   font-size: 1rem;
@@ -32,7 +31,7 @@
   transition: 0.5s;
 }
 .form__separator {
-  height: 5px;
+  height: 2px;
   background-color: $primary-color;
   border: none;
   margin: 0px 0px 20px 0px;
@@ -48,13 +47,4 @@
   background-color: $secondary-color;
   color: $primary-color;
   transition: 0.5s;
-}
-.form__input:focus,
-.form__select:focus {
-  border: 1px solid $primary-color;
-}
-
-.form__input::placeholder,
-.form__select::placeholder {
-  color: $form-color;
 }

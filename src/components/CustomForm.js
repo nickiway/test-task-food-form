@@ -2,9 +2,9 @@ import { Field, Form, useFormikContext } from "formik";
 
 import CustomSelect from "./CustomSelect";
 import CustomInput from "./CustomInput";
-import DynamicFormComponent from "./DynamicFormComponent";
+import CustomInputDynamic from "./CustomInputDynamic";
 
-import { selectValues } from "../ini/initialSchema";
+import { selectType } from "../ini/initialSchema";
 
 import "../scss/_form.scss";
 
@@ -16,12 +16,14 @@ export default function CustomForm() {
       <h2 align="center">Create a new dish</h2>
       <p className="form__subtitle">Enter all the required fields</p>
       <hr className="form__separator" />
+
       <CustomInput
         name="name"
         type="text"
         label="Enter the name of dish"
         hint="Max length is 100 characters"
       />
+
       <CustomInput
         name="preparation_time"
         type="time"
@@ -32,12 +34,15 @@ export default function CustomForm() {
           pattern: "([01]?[0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]",
         }}
       />
+
       <CustomSelect
-        selectValues={selectValues}
+        selectValues={selectType}
         name={"type"}
         label={"Choose the type of dish"}
       />
-      <DynamicFormComponent values={values} />
+
+      <CustomInputDynamic values={values} />
+
       <div className="form__item">
         <Field as="button" className="form__button" type="submit">
           Submit my order

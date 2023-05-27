@@ -12,12 +12,12 @@ Before getting started, make sure you have the following software installed on y
 ## Getting Started
 
 1. Clone the repository to your local machine using the following command:
-   git clone https://github.com/nickiway/test-task-food-form.git
+   `git clone https://github.com/nickiway/test-task-food-form.git`
 2. Navigate to the project directory:
-   cd <test-task-food-form>
+   `cd test-task-food-form`
 3. Install the project dependencies by running the following command:
-   npm install
+   `npm install`
 4. Start the development server:
-   npm start
+   `npm start`
    This command will start the React development server and launch your application in your default browser. Any changes you make to the source code will automatically trigger a hot-reload, allowing you to see the updates in real-time.
 5. Open your browser and visit `http://localhost:3000` to view your React application.

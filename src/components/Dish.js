@@ -9,6 +9,7 @@ export default function Dish({ children }) {
   const { type } = useFormikContext().values;
   const images = { pizza, soup, sandwich };
   const background = images[type] ? images[type] : pizza;
+
   return (
     <div className="dish" style={{ backgroundImage: `url(${background})` }}>
       <div className="dish__form">{children}</div>

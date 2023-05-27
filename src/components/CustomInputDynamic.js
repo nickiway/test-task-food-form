@@ -1,5 +1,9 @@
 import CustomInput from "./CustomInput";
-export default function DynamicFormComponent({ values }) {
+import CustomSelect from "./CustomSelect";
+
+import { selectSpiciness } from "../ini/initialSchema";
+
+export default function CustomInputDynamic({ values }) {
   switch (values.type) {
     case "pizza":
       return (
@@ -20,19 +24,10 @@ export default function DynamicFormComponent({ values }) {
       );
     case "soup":
       return (
-        <CustomInput
+        <CustomSelect
+          selectValues={selectSpiciness}
           name={"spiciness_scale"}
-          type={"number"}
-          label={"Spiciness scale"}
-          hint={"Max value is 10"}
-          inputProps={{
-            step: 1,
-            min: 0,
-            max: 10,
-            type: "number",
-            "aria-labelledby": "input-slider",
-          }}
-          value={values.spiciness_scale}
+          label={"Choose spiciness scale"}
         />
       );
     case "sandwich":

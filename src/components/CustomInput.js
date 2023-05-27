@@ -1,25 +1,23 @@
 import { useField } from "formik";
-import { TextField } from "@material-ui/core";
+import { TextField, InputLabel } from "@material-ui/core";
 
 // custom input component
 export default function CustomInput({ name, type, label, hint, ...args }) {
   const [field, meta] = useField(name);
+  const isInvalid = meta.error && meta.touched;
 
   return (
     <div className="form__item">
       <TextField
         {...field}
-        id={name}
-        name={name}
         type={type}
-        label={label}
+        label={isInvalid ? "" : label}
         variant="outlined"
-        autoComplete="off"
-        error={false}
+        error={meta.error && meta.touched}
         {...args}
         className="form__input"
       />
-      {meta.error && meta.touched ? (
+      {isInvalid ? (
         <div className="error">{meta.error}</div>
       ) : (
         <div className="hint">Hint: {hint}</div>
